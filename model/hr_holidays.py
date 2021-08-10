@@ -47,6 +47,12 @@ class Holidays(models.Model):
 			message = "Hallo %s, Anda mendapatkan permintakan ijin/cuti/pulang awal dari %s. Periksa akun Odoo anda ya... \n https://aston.id/web/login." % (
 				name,user)
 			self.telbot_sendtext(message, tele_id)
+		name = holiday.employee_id.name
+		tele_id = holiday.employee_id.user_id.tele_id
+		if tele_id:
+			message = "Hallo %s, permohonan ijin/cuti/pulang awal kamu sedang diajukan. Mohon menunggu ya..." % (
+                    name)
+		self.telbot_sendtext(message, tele_id)
 		return holiday
 
 	@api.multi
