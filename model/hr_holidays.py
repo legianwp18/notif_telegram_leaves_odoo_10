@@ -52,7 +52,7 @@ class Holidays(models.Model):
 		if tele_id:
 			message = "Hallo %s, permohonan ijin/cuti/pulang awal kamu sedang diajukan. Mohon menunggu ya..." % (
                     name)
-		self.telbot_sendtext(message, tele_id)
+			self.telbot_sendtext(message, tele_id)
 		return holiday
 
 	@api.multi
